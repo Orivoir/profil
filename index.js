@@ -10,7 +10,7 @@ app.get('/', (_,res) => {
   res.sendFile( path.join( __dirname, "./index.html" ) )
 } )
 
-const httpListener = server.listen( process.PORT, () => {
+const httpListener = server.listen( process.env.PORT, () => {
 
   const addr = httpListener.address();
 
