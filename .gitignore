@@ -1,1 +1,8 @@
 /node_modules/
+
+# because config contains admin credentials
+/config.json
+
+/uploads/
+
+Procfile
