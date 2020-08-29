@@ -84,21 +84,22 @@ global.onInvalidToken = ( request, response ) => {
 
 global.onUpload = ({
   file,
-  moveTo
+  moveTo,
+  name=null
 }) => {
 
-  const phisycalName = profil.name;
+  const phisycalName = file.name;
   const ext = phisycalName.split('.').slice( -1 )[0];
 
-  const type = profil.mimeType;
+  const type = file.mimetype;
 
   return new Promise( (resolve,reject) => {
 
     if( /^(image)\/(png|jpe?g|gif)$/.test( type ) ) {
 
-      const filename = file.md5 + "." + ext;
+      const filename = ( name || file.md5 ) + "." + ext;
 
-      profil.mv(
+      file.mv(
         path.join(
           moveTo,
           filename

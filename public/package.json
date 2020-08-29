@@ -4,7 +4,8 @@
   "description": "",
   "main": "webpack.config.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "build-dev": "webpack --mode development --watch",
+    "build": "webpack --mode production --optimize"
   },
   "keywords": [],
   "author": "",
@@ -15,6 +16,8 @@
     "@babel/preset-react": "^7.10.4",
     "babel-loader": "^8.1.0",
     "css-loader": "^4.2.2",
+    "react": "^16.13.1",
+    "react-dom": "^16.13.1",
     "style-loader": "^1.2.1",
     "url-loader": "^4.1.0",
     "webpack": "^4.44.1",

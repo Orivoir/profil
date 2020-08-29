@@ -6,17 +6,17 @@
 
 - / root
   - / store
-    - / portfolios
+    - / {storeName}
       - {id}.json
   - / lib
     - / storage
       - storage.js
     - / routes
       - autoload.js
-      / index
+      - / index
         - home.js
         - contact.js
-      / admin
+      - / admin
         - login.js
         - logout.js
         - profil-picture.js
@@ -86,6 +86,8 @@
         - / Dashboard
           - Dashboard.js
           - Dashboard.css
+        - / AddPortfolio
+            - AddPortfolio.js
         - / MessageBox
           - MessageBox.js
           - MessageBox.css
