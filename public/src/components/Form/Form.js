@@ -1,7 +1,10 @@
 import React, {useRef} from 'react';
 
+import './Form.css';
+
 const Form = ({
   method="GET",
+  legend=null,
   action="/",
   className="",
   fields=[],
@@ -12,7 +15,8 @@ const Form = ({
   const formRef = useRef( null );
 
   return (
-    <section className={`${className}`}>
+    <section className={`form ${className}`}>
+      {legend}
       <form
         ref={formRef}
         method={method}
@@ -30,6 +34,8 @@ const Form = ({
 
             state[ field.getAttribute( "name" ) ] = ( field.files || field.value || field.checked || null );
 
+            field.value = "";
+
           } );
 
           e.state = state;
@@ -42,6 +48,7 @@ const Form = ({
         {typeof submit !== "string" ? submit: (
           <button
             type="submit"
+            className="primary"
           >
             {submit}
           </button>

@@ -1,0 +1,11 @@
+.building {
+
+  width: 65%;
+  margin: var( --space-md ) auto;
+}
+
+.building figcaption {
+  margin: var( --space-md ) 0;
+  font-size: var( --fsize-md );
+  letter-spacing: var( --lspace-sm );
+}

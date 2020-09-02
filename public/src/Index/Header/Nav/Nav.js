@@ -1,30 +1,36 @@
 import React from 'react';
 
+import './Nav.css';
+
 const Nav = ({
   onShowPortfolio,
   onShowContact
 }) => {
   return (
-    <ul className="nav">
+    <nav className="nav">
+      <ul>
 
-      <li>
-        <button
-          type="button"
-          onClick={onShowPortfolio}
-        >
-          portfolio
-        </button>
-      </li>
+        <li>
+          <button
+            type="button"
+            onClick={onShowPortfolio}
+            className="primary btn-portfolio"
+          >
+            portfolio
+          </button>
+        </li>
 
-      <li>
-        <button
-          type="button"
-          onClick={onShowContact}
-        >
-          contact
-        </button>
-      </li>
-    </ul>
+        <li>
+          <button
+            type="button"
+            onClick={onShowContact}
+            className="primary-outline btn-contact"
+          >
+            contact
+          </button>
+        </li>
+      </ul>
+    </nav>
   );
 };
 

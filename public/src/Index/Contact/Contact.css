@@ -1,0 +1,5 @@
+.contact .fa-asterisk {
+
+  color: var( --error );
+  font-size: var( --fsize-x-sm );
+}

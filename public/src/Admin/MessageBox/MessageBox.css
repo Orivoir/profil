@@ -1,0 +1,68 @@
+.mb-empty {
+
+  margin: 0 var( --space-xl );
+  font-size: var( --fsize-md );
+  letter-spacing: var( --lspace-sm );
+}
+
+.list-message {
+
+  flex-direction: column;
+  width: 65%;
+  margin: var( --space-lg ) auto;
+}
+
+.message-item-section .message-open {
+
+  position: fixed;
+  left: 0;
+  top: 0;
+  bottom: 0;
+  right: 0;
+  background: rgba( 0,0,0,.85 );
+  color: var( --dark );
+}
+
+.message-item-section .message-open .message-open-content {
+
+  background: var( --light );
+
+  position: absolute;
+
+  left: 50%;
+  top: 50%;
+
+  transform: translate(-50%, -50%);
+
+  padding: var( --space-lg );
+}
+
+.message-item-section .owner {
+
+  font-size: var( --fsize-xl );
+  margin-bottom: var( --space-md );
+}
+
+.message-item-section .object {
+  color: var( --dark-alt );
+  font-style: italic;
+  font-size: var( --fsize-md );
+  padding-left: var( --space-md );
+}
+
+.message-item-section .content {
+
+  font-size: var( --fsize-md );
+  letter-spacing: var( --lspace-sm );
+}
+
+.message-item-section button {
+
+  margin: 0 var( --space-sm );
+}
+
+.message-item-section .message-action,
+.message-item-section .preview-action {
+
+  margin: var( --space-md ) 0;
+}

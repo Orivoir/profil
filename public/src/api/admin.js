@@ -72,6 +72,21 @@ const api = {
     } );
   },
 
+  notifs({token}) {
+
+    return new Promise( (resolve, reject) => {
+
+      fetch(`/api/admin/notifs?token=${token}`, {
+        method: "GET"
+      })
+      .then( response => response.json() )
+      .then( data => resolve( data ) )
+      .catch( error => reject( error ) );
+
+    } );
+
+  },
+
   messages: {
 
     gets({token}) {
@@ -88,12 +103,26 @@ const api = {
       } );
     },
 
+    isRead( {token, id} ) {
+
+      return new Promise( (resolve, reject) => {
+
+        fetch(`/api/admin/message/read/${id}?token=${token}`, {
+          method: "PUT"
+        })
+        .then( response => response.json() )
+        .then( data => resolve( data ) )
+        .catch( error => reject( error ) );
+
+      } );
+    },
+
     delete( {token, id} ) {
 
       return new Promise( (resolve, reject) => {
 
         fetch(`/api/admin/messages/${id}?token=${token}`, {
-          method: "GET"
+          method: "DELETE"
         })
         .then( response => response.json() )
         .then( data => resolve( data ) )
@@ -121,13 +150,20 @@ const api = {
 
       return new Promise( (resolve, reject) => {
 
-        fetch(`/api/admin/portfolio?token=${token}`, {
-          method: "POST",
-          body: fd
-        })
-        .then( response => response.json() )
-        .then( data => resolve( data ) )
-        .catch( error => reject( error ) );
+        if( !image ) {
+
+          resolve( { success: false, details: "image field is empty" } );
+
+        } else {
+
+          fetch(`/api/admin/portfolio?token=${token}`, {
+            method: "POST",
+            body: fd
+          })
+          .then( response => response.json() )
+          .then( data => resolve( data ) )
+          .catch( error => reject( error ) );
+        }
 
       } );
 

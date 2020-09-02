@@ -1,34 +1,53 @@
 # Profil Samuel GABORIEAU
 
-> this repository is my profil app
+> this repository is my profil app mounted with [Nodejs](https://nodejs.org/en/) [Express](expressjs.com/fr/api.html) and [Reactjs](reactjs.org/)
 
 ## Tree
 
-- / root
-  - / store
+- / profil
+  - / uploads
     - / {storeName}
       - {id}.json
+    - / portfolio-images
+      - {filename}.{ext}
+    - / profil-picture
+      - {filename}.{ext}
   - / lib
     - / storage
-      - storage.js
+      - storage.js ( handler of "./uploads/{storeName}" directories )
     - / routes
       - autoload.js
       - / index
         - home.js
+        - is-admin.js
+        - image-portfolio.js
         - contact.js
+        - admin-image.js
       - / admin
+        - read-message.js
+        - delete-message.js
         - login.js
         - logout.js
         - profil-picture.js
         - add-portfolio.js
         - update-portfolio.js
         - delete-portfolio.js
+      - / middlewares
+        - api.js
+        - body-parser.js
+        - firewall.js
+        - session.js
+        - static-dir.js
+        - xss.js
+        - injector.js
+        - headers.js
   - index.js ( entry point web server )
   - package.json
   - config.json
   - / views
       - index.html
       - admin.html
+      - not-found.html
   - / public
     - package.json
     - webpack.config.js
@@ -43,15 +62,21 @@
       - admin.js
       - base.css
       - / components
+        - / ListItem
+          - ListItem.js
+          - ListItem.css
+          - / Item
+            - Item.js
+            - Item.css
         - / Notif
           - Notif.js
           - Notif.css
         - / Form
           - Form.js
           - Form.css
-        - / ButtonUI
-          - ButtonUI.js
-          - ButtonUI.css
+        - / Loader
+          - Loader.js
+          - Loader.css
       - / Index
           - App.js
           - / Header
@@ -119,6 +144,18 @@
 - **GET** *"/api/admin/logout?token={string}"* **application/json**
 
 - **GET** *"/api/admin/messages?token={string}"* **application/json**
+
+- **GET** *"/api/is-admin"* **application/json** ( check if user already logged as admin )
+
+- **GET** *"/admin/image"* **application/octet-stream**
+
+- **GET** *"/api/admin/notifs?token={token}"* **application/json** ( get message not read )
+
+- **PUT** *"/api/admin/message/read/:id?token={string}"* ( set read state of a message )
+
+- **GET** *"/portfolio/image/:filename"* **application/octet-stream** ( get image file of a portfolio )
+
+- **DELETE** *"/api/admin/messages/:id?token={string}"* **application/json**
 
 - **PUT** *"/api/admin/profil-picture?token={token}"* **application/json** ( upgrade profil picture )
   - put params:

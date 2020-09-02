@@ -27,6 +27,20 @@ const api = {
 
   },
 
+  isAdmin() {
+
+    return new Promise( (resolve, reject) => {
+
+      fetch(`/api/is-admin`, {
+        method: "GET"
+      })
+      .then( response => response.json() )
+      .then( data => resolve( data ) )
+      .catch( error => reject( error ) );
+
+    } );
+  },
+
   portfolios() {
 
     return new Promise( (resolve, reject) => {

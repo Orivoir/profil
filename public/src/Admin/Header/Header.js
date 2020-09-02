@@ -5,10 +5,13 @@ const Header = ({
   onLogout,
   onShowMessageBox,
   onShowDashboard,
+  newMessages
 }) => {
+
   return (
     <header>
       <Nav
+        newMessages={newMessages}
         onLogout={onLogout}
         onShowMessageBox={onShowMessageBox}
         onShowDashboard={onShowDashboard}

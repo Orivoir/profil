@@ -1,9 +1,11 @@
 import React, {useState} from 'react';
 import Header from './Header/Header';
+import Footer from './Footer/Footer.js';
 
 const App = ({api,mainContents}) => {
 
   const [isLogged, setIsLogged] = useState( false );
+  const [newMessages, setNewMessages] = useState( [] );
 
   function onLogout() {
 
@@ -16,6 +18,35 @@ const App = ({api,mainContents}) => {
 
     setIsLogged( true );
     setMainContent( mainContents.DASHBOARD( {api, onLogout} ) );
+
+    api.notifs( {
+      token: sessionStorage.getItem('token')
+    } )
+    .then( data => {
+
+      if( data.success ) {
+
+        setNewMessages( data[ "new-messages" ] );
+
+      } else {
+
+        console.log( data );
+      }
+
+    } )
+    .catch( error => {
+
+      console.error( error );
+
+    } );
+  }
+
+  function onOpenNewMessage( message ) {
+
+    setNewMessages( nms => nms.filter( nm => (
+      nm.id !== message.id
+    ) ) );
+
   }
 
   const [mainContent, setMainContent] = useState( mainContents.DEFAULT( { api, onLogged } ) );
@@ -26,8 +57,11 @@ const App = ({api,mainContents}) => {
       {isLogged ? (
         <>
         <Header
+
+          newMessages={newMessages}
+
           onShowMessageBox={() => (
-            setMainContent( mainContents.MESSAGEBOX( {api} ) )
+            setMainContent( mainContents.MESSAGEBOX( {api, onOpenNewMessage} ) )
           )}
 
           onShowDashboard={() => (
@@ -60,6 +94,10 @@ const App = ({api,mainContents}) => {
       ): null}
 
       {mainContent}
+
+      {isLogged ? (
+        <Footer api={api} />
+      ): null}
 
     </section>
   );

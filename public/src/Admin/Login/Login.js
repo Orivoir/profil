@@ -2,6 +2,10 @@ import React, {useState, useEffect} from 'react';
 
 import Form from './../../components/Form/Form.js';
 
+import Notif from './../../components/Notif/Notif.js';
+
+import './Login.css';
+
 const Login = ({
   api,
   onLogged
@@ -9,13 +13,25 @@ const Login = ({
 
   const [isPending, setIsPending] = useState( true );
 
+  const [notif, setNotif] = useState( null );
+
   const fields = [
     {
       name: "login",
+      type: "text",
+      label:
+      <>
+      <i className="fas fa-user-ninja"></i>
+      </>
+      ,
       defaultValue: localStorage.getItem('login') || ""
     }, {
       name: "password",
-      type: "password"
+      type: "password",
+      label:
+      <>
+      <i className="fas fa-user-lock"></i>
+      </>
     }
   ]
 
@@ -44,7 +60,6 @@ const Login = ({
 
   }, [] );
 
-
   return (
     <section className="login">
       {isPending ? (
@@ -54,6 +69,7 @@ const Login = ({
       ): (
         <>
         <Form
+          legend={notif}
           fields={fields.map( (field,key) => (
             <div key={key}>
               <label htmlFor={field.id || field.name}>
@@ -87,9 +103,12 @@ const Login = ({
 
               } else {
 
-                console.warn("auth reject with:", data.details );
-
-                console.info( data );
+                setNotif(
+                  <Notif
+                    type="error"
+                    content={data.details}
+                  />
+                )
 
                 setIsPending( false );
 
@@ -104,11 +123,17 @@ const Login = ({
           }}
         />
 
-        <a href="/">home</a>
+        <a
+          href="/"
+          className="back-link btn primary"
+        >
+          home
+        </a>
         </>
       )}
     </section>
   );
+
 };
 
 export default Login;

@@ -1,6 +1,7 @@
 const config = require('./config.json');
 const path = require('path');
-const Storage = require('./lib/storage/storage')
+const Storage = require('./lib/storage/storage');
+const fs = require('fs');
 
 global.config = config;
 
@@ -31,8 +32,8 @@ global.STORAGES_NAME = {
   }
 };
 
-config["uploads-dir"].forEach( dirname => (
-  global.storage.createDir( dirname )
+Object.keys(global.STORAGES_NAME).forEach( attribute => (
+  global.storage.createDir( global.STORAGES_NAME[attribute] )
 ) );
 
 global.__ROOT__ = __dirname;
@@ -41,6 +42,21 @@ global.exp = require('express');
 
 global.DIR_UPLOAD = path.join( __dirname, "uploads" );
 global.DIR_VIEWS = path.join( __dirname, "views" );
+global.DIR_IMAGES = path.join( global.__ROOT__, "./public/images" )
+
+global.saveConfig = function() {
+
+  fs.writeFileSync(
+    path.join(
+      __dirname, "./config.json"
+    ),
+    JSON.stringify( global.config ),
+    {
+      encoding: "utf-8"
+    }
+  );
+
+};
 
 global.onCrash = ( request, response, devMessage ) => {
 

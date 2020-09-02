@@ -8,6 +8,11 @@ const
   path = require('path')
 ;
 
+if( global.config.env !== "dev" ) {
+
+  app.set('trust proxy', 1);
+}
+
 Object.keys( routes.middleware ).forEach( name => {
 
   const midw = routes.middleware[ name ];
@@ -22,20 +27,22 @@ middlewares.forEach( middleware => (
   middleware instanceof Array ? app.use( ...middleware ): app.use( middleware )
 ) );
 
-
 app
   .get('/', routes.index.home )
   .post('/api/contact', routes.index.contact )
   .get('/api/portfolios', routes.index.portfolios )
 
+  .get('/admin/image', routes.index['admin-image'] )
   .get('/api/is-admin', routes.index['is-admin'] )
 
   .get('/portfolio/image/:filename', routes.index['image-portfolio'] )
 
   .get('/admin', routes.admin.home )
   .post('/api/admin/login', routes.admin.login )
+  .get('/api/admin/notifs', routes.admin.notifs )
   .get('/api/admin/logout', routes.admin.logout )
   .get('/api/admin/messages', routes.admin.messages )
+  .put('/api/admin/message/read/:id', routes.admin['read-message'] )
   .delete('/api/admin/messages/:id', routes.admin["delete-message"] )
   .put('/api/admin/profil-picture', routes.admin["profil-picture"] )
   .post('/api/admin/portfolio', routes.admin["add-portfolio"] )

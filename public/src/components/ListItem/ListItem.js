@@ -2,6 +2,8 @@ import React from 'react';
 
 import Item from './Item/Item.js';
 
+import './ListItem.css';
+
 const ListItem = ({
   items,
   className

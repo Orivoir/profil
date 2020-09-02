@@ -3,6 +3,6 @@
 # because config contains admin credentials
 /config.json
 
-/uploads/
+/uploads/**
 
 /package-lock.json

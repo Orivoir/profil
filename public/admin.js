@@ -7,6 +7,8 @@ import api from './src/api/admin.js';
 
 import mainContents from './src/main-content/admin.meta.js';
 
+import './base.css';
+
 ReactDOM.render(
   <App
     api={api}
