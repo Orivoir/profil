@@ -32,6 +32,11 @@ global.STORAGES_NAME = {
   }
 };
 
+if( !fs.existsSync( path.join( __dirname, "uploads" ) ) ) {
+
+  fs.mkdirSync( path.join( __dirname, "uploads" ) );
+}
+
 Object.keys(global.STORAGES_NAME).forEach( attribute => (
   global.storage.createDir( global.STORAGES_NAME[attribute] )
 ) );
