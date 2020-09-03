@@ -70,7 +70,7 @@ const Footer = ({api}) => {
           effect="solid"
           place="top"
         />
-        <a href="/assets/pdf/Samuel_Gaborieau_DevFullstackJunior.pdf"
+        <a href="/assets/PDF/Samuel_Gaborieau_DevFullstackJunior.pdf"
           download
           data-for="down-cv"
           data-tip={`PDF 15,4 Ko`}
