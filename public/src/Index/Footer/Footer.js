@@ -2,6 +2,8 @@ import React, {useState, useRef, useEffect} from 'react';
 
 import './Footer.css';
 
+import ReactTooltip from 'react-tooltip';
+
 const Footer = ({api}) => {
 
   useEffect( () => {
@@ -54,7 +56,7 @@ const Footer = ({api}) => {
         className={`links ${isOpen ? "open":""}`}
       >
         <a
-          href="https://github.com/Orivoir/profil/"
+          href="https://github.com/Orivoir/"
           className="btn info"
           target="_blank"
         >
@@ -62,13 +64,22 @@ const Footer = ({api}) => {
           github
         </a>
 
-        <button
+        <ReactTooltip
+          id="down-cv"
+          type="dark"
+          effect="solid"
+          place="top"
+        />
+        <a href="/assets/pdf/Samuel_Gaborieau_DevFullstackJunior.pdf"
+          download
+          data-for="down-cv"
+          data-tip={`PDF 15,4 Ko`}
           type="button"
-          className="primary"
+          className="btn primary"
         >
           <i className="fas fa-download"></i>&nbsp;
           CV
-        </button>
+        </a>
 
         <a
           href="https://www.npmjs.com/~orivoir21"
