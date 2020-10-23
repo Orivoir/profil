@@ -1,6 +1,5 @@
 /node_modules/
 
-# because config contains admin credentials
-/uploads/**
+/public/js/copy-on-click.js
 
 /package-lock.json

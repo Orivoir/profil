@@ -1,5 +1,6 @@
 document.addEventListener('DOMContentLoaded', () => {
 
+
   // inject point enter copy data
   const target = document.createElement('input');
   target.id = "trap-select";
