@@ -1,5 +1,5 @@
 /node_modules/
 
-/public/js/copy-on-click.js
+./public/js/copy-on-click.js
 
 /package-lock.json

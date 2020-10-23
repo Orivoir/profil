@@ -39,6 +39,11 @@ header .contact ul {
   align-items: center;
 }
 
+header .top figure img {
+  width: 120px;
+  height: auto;
+}
+
 @media screen and ( max-width: 900px ), (max-height: 650px) {
 
   header .top {

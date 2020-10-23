@@ -38,8 +38,10 @@
         <div>
           <figure>
             <img
-              src="./public/images/identity.jpg"
-              alt="Samuel GABORIEAU"
+              data-src="./public/images/identity.jpg"
+              data-alt="Samuel GABORIEAU"
+              alt="Loading..."
+              src="./public/images/loader.svg"
               width="200"
             >
           </figure>
@@ -90,40 +92,93 @@
 
           <h2>Compétences</h2>
 
+          <h3>
+            Mon workflow
+          </h3>
+
+          <ul class="compt-main-list">
+
+            <ul class="advanced">
+              <li class="para push">
+                <p> HTML 5 / CSS 3</p>
+              </li>
+
+              <li class="para push">
+                <p>Javascript (ES6)</p>
+              </li>
+
+              <li class="para push">
+                <p>
+                  Nodejs / Express
+                </p>
+              </li>
+
+              <li class="para push">
+                <p>jQuery</p>
+              </li>
+
+            </ul>
+
+            <ul class="medium">
+
+              <li class="para push">
+                <p>Reactjs</p>
+              </li>
+
+              <li class="para push">
+                <p> PHP 7 / MariaDB (MySQL)</p>
+              </li>
+
+              <li class="para push">
+                <p>
+                  Bootstrap (3 / 4)
+                </p>
+              </li>
+
+              <li class="para push">
+                <p>
+                  Symfony (4 / 5)
+                </p>
+              </li>
+
+            </ul>
+
+            <ul class="starter">
+
+              <li class="para push">
+                <p>
+                  Wordpress (5.x)
+                </p>
+              </li>
+
+              <li class="para push">
+                <p>
+                  Typescript
+                </p>
+              </li>
+
+              <li class="para push">
+                <p>
+                  Préprocesseur de SASS
+                </p>
+              </li>
+
+            </ul>
+
+          </ul>
+
+          <h3>
+            J'ambitionne de l'étendre avec
+          </h3>
+
           <ul>
-
-            <li class="para push">
-              <p> HTML 5 / CSS 3 (Avancé)</p>
-            </li>
-
-            <li class="para push">
-              <p>Javascript (ES6) (Avancé)</p>
-            </li>
-
-            <li class="para push">
-              <p>jQuery (Avancé)</p>
-            </li>
-
-            <li class="para push">
-              <p>Reactjs (Intermédiaire)</p>
-            </li>
-
-            <li class="para push">
-              <p> PHP 7 / MariaDB ( MySQL ) (Intermédiaire)</p>
-            </li>
-
-            <li class="para push">
-              <p>
-                Bootstrap ( 3 / 4 ) (Intermédiaire)
+            <li>
+              <p class="para push">
+                <a href="https://deno.land">Deno</a>
+                <br />
+                runtime Javascript avec un moteur Typescript intégré sécurisé par défaut par le créateur de Nodejs *.*
               </p>
             </li>
-
-            <li class="para push">
-              <p>
-                Préprocesseur de SASS (débutant)
-              </p>
-            </li>
-
           </ul>
 
         </section>
@@ -239,6 +294,7 @@
 
     </main>
 
+    <script src="./public/js/load-image.js"></script>
     <script src="./public/js/copy-on-clik.min.js"></script>
 
   </body>

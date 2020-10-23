@@ -14,3 +14,35 @@
 .secondary-side h3 *:first-child {
   margin-right: 1vw;
 }
+
+.primary-side .compt ul ul.advanced li p::after {
+
+  content: "(Avancé)";
+  display: inline-block;
+  margin-left: .5vw;
+}
+
+.primary-side .compt ul ul.medium li p::after {
+  content: "(Intermédiaire)";
+  display: inline-block;
+  margin-left: .5vw;
+}
+
+.primary-side .compt ul ul.starter li p::after {
+  content: "(Débutant)";
+  display: inline-block;
+  margin-left: .5vw;
+}
+
+.primary-side .compt ul ul.advanced,
+.primary-side .compt ul ul.medium,
+.primary-side .compt ul ul.starter {
+
+  margin: 3vh 0;
+}
+
+.primary-side .compt .compt-main-list {
+
+  display: flex;
+  flex-direction: column;
+}
