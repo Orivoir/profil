@@ -1,0 +1,16 @@
+.primary-side > section,
+.secondary-side > section {
+
+  margin: 4vh 0;
+
+}
+
+.primary-side h3,
+.secondary-side h3 {
+  display: flex;
+  margin: 1.5vh 0;
+}
+
+.secondary-side h3 *:first-child {
+  margin-right: 1vw;
+}

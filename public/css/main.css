@@ -1,0 +1,18 @@
+main {
+
+  display: flex;
+
+  margin: 8vh .85vw;
+}
+
+main > section {
+
+  margin: 0 1vw;
+}
+
+@media screen and ( max-width: 900px ), (max-height: 650px) {
+
+  main {
+    flex-direction: column;
+  }
+}
